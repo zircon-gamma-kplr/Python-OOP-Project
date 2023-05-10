@@ -18,7 +18,7 @@ class TestInventoryManager(unittest.TestCase):
         # Instanciation de l'objet InventoryManager
         self.inventory_manager = InventoryManager()
         # Instanciation d'objets Chaise et Pantalon pour les tests
-        self.chaise = Chaise("materiau2", "couleur2", "dimension2", 50, 100, "Ikea")
+        self.chaise = Chaise("materials2", "color2", "dimension2", 50, 100, "Ikea")
         self.pantalon = Pantalon("M", "noir", "jeans", 150, 200,"Zara")
 
     # Test de la méthode add_product de la classe InventoryManager

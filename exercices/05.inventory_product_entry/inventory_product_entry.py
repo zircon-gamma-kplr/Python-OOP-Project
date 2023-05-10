@@ -32,7 +32,7 @@ class InventoryProductEntry:
             Retourner Faux
         SINON:
             Réduire la quantité en stock par la quantité demandée
-            Ajouter le revenue total de la vente à la variable 'sales' en multipliant la quantité vendue par le prix du produit
+            Ajouter le revenue total de la vente à la variable 'sales' en multipliant la quantité vendue par le price du produit
             Retourner Vrai
         
         """
@@ -51,8 +51,8 @@ class InventoryProductEntry:
     #Méthode repr
     """
     La méthode repr est utilisée pour fournir une représentation en chaîne de caractères de l'objet InventoryProductEntry, 
-    qui contient des informations utiles telles que le nom du produit, la marque, la quantité en stock et le prix du produit.
+    qui contient des informations utiles telles que le nom du produit, la marque, la quantité en stock et le price du produit.
 
     """
     def __repr__(self):
-        # Retourner une chaîne de caractères formatée contenant le nom du produit, la marque, la quantité en stock et le prix du produit.
+        # Retourner une chaîne de caractères formatée contenant le nom du produit, la marque, la quantité en stock et le price du produit.

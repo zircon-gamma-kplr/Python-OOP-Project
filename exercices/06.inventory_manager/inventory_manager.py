@@ -84,7 +84,7 @@ class InventoryManager:
     #Méthode list_products
     """
     La méthode list_products(self) parcourt tous les produits de l'inventaire 
-    et affiche les informations relatives à chacun d'entre eux (nom, quantité disponible, prix unitaire, coût unitaire, prix de vente unitaire, bénéfice unitaire). 
+    et affiche les informations relatives à chacun d'entre eux (nom, quantité disponible, price unitaire, coût unitaire, price de vente unitaire, bénéfice unitaire). 
     """
     def list_products(self):
         """

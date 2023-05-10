@@ -28,6 +28,6 @@ class ProfitTracker:
  
     def sell_product(self, product: Product, quantity):
         
-        # Met à jour le solde en ajoutant le prix du produit multiplié par la quantité vendue
+        # Met à jour le solde en ajoutant le price du produit multiplié par la quantité vendue
 
 

@@ -9,8 +9,8 @@
           "Articles Menagers": {
             "subclasses": {
               "Meubles": {
-                "materiau": "",
-                "couleur": "",
+                "materials": "",
+                "color": "",
                 "dimensions": "",
                 "subclasses": {
                   "Canape": {},
@@ -33,7 +33,7 @@
                 }
               },
               "Ustensiles Cuisine": {
-                "materiaux": "",
+                "materialsx": "",
                 "subclasses": {
                   "Casserole": {
                     "diametre": ""
@@ -49,7 +49,7 @@
             "subclasses": {
               "Vetements": {
                 "taille": "",
-                "couleur": "",
+                "color": "",
                 "matiere": "",
                 "subclasses": {
                   "Haut": {},
@@ -58,7 +58,7 @@
                 }
               },
               "Casquette": {
-                "couleur": ""
+                "color": ""
               },
               "Chaussures": {
                 "pointure": ""

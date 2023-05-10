@@ -57,4 +57,3 @@ nb_roues = 2
 cylindree = 300
 """
 
-
