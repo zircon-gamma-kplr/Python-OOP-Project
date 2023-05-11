@@ -9,7 +9,7 @@ local_path = os.path.dirname(os.path.abspath(__file__))
 print(__file__)
 # Chargement des données JSON à partir du fichier dans un dictionnaire python
 json_data = json.load(open(os.path.join(local_path, 'json_data.json'), "rb"))
-
+print(__file__)
 # il est nécessaire de reconvertir le dictionnaire en chaine de caractere pour le traiter ensuite
 json_str = json.dumps(json_data)
 
