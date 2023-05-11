@@ -3,20 +3,21 @@ import json
 from unidecode import unidecode
 import re
 import os
+from treelib import Tree
 
 # Fonction pour charger les données JSON depuis un fichier et les convertir en dictionnaire Python
 # la fonction json_dict_from_file() reste inchangée.
-
-local_path = os.path.dirname(os.path.abspath(__file__))
-json_data = json.load(open(os.path.join(local_path, 'json_data.json'), "rb"))
-json_str = json.dumps(json_data)
-json_data = (unidecode(json_str))
-json_dict = json.loads(json_data)
-print(json.dumps(json_dict, indent=4))
+def json_dict_from_file():
+    local_path = os.path.dirname(os.path.abspath(__file__))
+    json_data = json.load(open(os.path.join(local_path, 'json_data.json'), "rb"))
+    json_str = json.dumps(json_data)
+    json_data = (unidecode(json_str))
+    json_dict = json.loads(json_data)
+    return json_dict
 
 # Fonction pour créer un arbre à partir d'un dictionnaire Python
 
-from treelib import Tree
+
 
 def create_tree_from_dict(tree, parent_node_id, parent_dict):
     for key, value in parent_dict.items():
