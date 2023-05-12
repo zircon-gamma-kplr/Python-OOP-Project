@@ -25,16 +25,25 @@ Elle prend les arguments suivant:
     - superclass_name : une chaîne de caractères représentant le nom de la classe parente. Par défaut, sa valeur est None pour la racine de la hiérarchie.
     - superclass_args : une liste des arguments des arguments de la classe mère à passer à la classe fille.
 """
-def generate_class_hierarchy(json_dict: dict, superclass_name: str=None, superclass_args: list=[]):
     # Initialisation de la chaîne de caractères contenant les définitions de classes
-    class_defs = ""
    
+from generator.class_generation import generate_class_def 
 
-    
+def generate_class_hierarchy(json_dict :dict, superclass_name:str=None,superclass_args:list=[]):
+    class_defs = ""
 
+    for class_name, class_attrs in json_dict.items():
 
+        class_def = generate_class_def(class_name, class_attrs, superclass_name,superclass_args)
+        class_defs += class_def
 
-    
+        if "subclasses" in class_attrs:
+            super_attr = (list(class_attrs.keys())+superclass_args)
+            super_attr.remove("subclasses")
+            subclass_defs = generate_class_hierarchy(class_attrs["subclasses"], class_name, super_attr)
+            class_defs += subclass_defs
+
+    return class_defs
 
     """ 
     Itération sur les éléments du dictionnaire
@@ -69,13 +78,40 @@ La méthode utilise une clause with pour ouvrir le fichier en mode écriture ("w
 Ensuite, elle écrit le contenu passé en argument dans le fichier à l'aide de la méthode write. 
 Après avoir terminé d'écrire dans le fichier, la méthode se termine et le fichier est automatiquement fermé grâce à l'utilisation de la clause with.
 """    
+# Charger des données JSON à partir du fichier dans un dictionnaire python
+
+
 def write_content(content,filename):
         with open(filename, "w", encoding='utf-8') as f:
             f.write(content)
 
+
+# Charger des données JSON à partir du fichier dans un dictionnaire python
+local_path = os.path.dirname(os.path.abspath(__file__))
+json_data = json.load(open(os.path.join(local_path, 'json_data.json'), "rb"))
+# Reconvertir le dictionnaire en chaine de caractere pour le traiter ensuite
+json_str = json.dumps(json_data)
+# Utilisation de la fonction unidecode pour enlever les accents et autres caractères spéciaux
+json_data = (unidecode(json_str))
+# Conversion de la chaine de caractere JSON à nouveau en dictionnaire Python
+# Le dictionnaire python est plus pratique à manipuler que la chaine de caractère car il est structuré
+json_dict = json.loads(json_data)
+
+
 # Appeler la méthode generate_class_hierarchy pour générer le code des classes automatiquement en se basant sur le dictionnaire json_dict
+generate_class_hierarchy (json_dict)
+# Stocker le résultat de la classe dans une variable
 
 
+# Appeler la fonction write_content pour stocker le code des classes dans un fichier Python 'product_classes.py'
+
+# Charger des données JSON à partir du fichier dans un dictionnaire python
 
 # Stocker le résultat de la classe dans une variable
-# Appeler la fonction write_content pour stocker le code des classes dans un fichier Python 'product_classes.py'
+
+content= generate_class_hierarchy(json_dict)
+filename ='/workspaces/Python-OOP-Project/exercices/04.class_generation/product_classes.py'
+
+print(content)
+
+write_content(content, filename)
