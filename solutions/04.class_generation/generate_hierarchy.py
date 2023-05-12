@@ -1,4 +1,4 @@
-from generator.generate_class_def import generate_class_def 
+from generator.class_generation import generate_class_def 
 
 def generate_class_hierarchy(json_dict :dict, superclass_name:str=None,superclass_args:list=[]):
     class_defs = ""
